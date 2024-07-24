@@ -12,6 +12,77 @@
 
 <body>
     <bar-nav></bar-nav>
+    <h1><i>Análisis de los datos. Etapas</i></h1>
+    <p>
+        Un modelo necesita de datos. Se divide en variables y patrones. <br>
+        Una <i>variable</i> es una característica. Un <i>patrón</i> es un conjunto de variables. <br>
+        Un patrón puede ser una imagen, y una variable sería cada píxel.
+    </p>
+    <h1>Etapas de la producción</h1>
+    <h2>Preprocesado de datos</h2>
+    <p>
+        Es la parte que tarda más tiempo. Consiste en las siguientes partes:<br>
+        <ul>
+            <li><b>Limpieza de datos: </b>Se determina si hay datos atípicos o incorrectos. <br>
+            Un dato atípico es algo improbable, pero no imposible. Un dato incorrecto sí es imposible</li>
+            <li><b>Normalización: </b>Se busca que el rango de los datos de entrada no sea tan grande. <br>
+            Los datos no deben distar tanto entre sí</li>
+            <li><b>Detección de outliers: </b>Un outlier es un dato atípico. Disminuyen la eficacia del modelo. <br>
+            Para saber si existen atípicos, se compara mediana y media. Si hay una gran diferencia, hay atípicos. <br>
+            También se puede ver si los valores están dentro del rango (m-3&sigma;, m+3&sigma;], donde m es la media y &sigma; la desviación estándar. <br>
+            Para detectarlos, se usan algoritmos de agrupamiento de datos y el isolation forest</li>
+            <li><b>Datos ausentes: </b>Para tratar con datos ausentes, se tiene una estrategia enfocada en variables y otra enfocada en patrones. <br>
+            Si se enfoca en variables, se reemplaza lo faltante con la media o la moda, si la variable es continua o discreta, respectivamente. <br>
+            Si se enfoca en patrones, se reemplaza lo faltante con datos de un patrón similar. Se usan distintos algoritmos</li>
+            <li><b>Ingeniería de características: </b>Se transforman, seleccionan y analizan las entradas para darle "masticado" al modelo. <br>
+            Se define la información que se le va a pasar al modelo</li>
+        </ul>
+    </p>
+    <h2>Análisis exploratorio de datos</h2>
+    <p>
+        Se describen los datos con herramientas estadísticas. <br>
+        Se determina datos estadísticos, relaciones lineales, normalidad, independencia y estadística inferencial de los datos obtenidos. <br>
+        Se aplican algoritmos de agrupamiento (clustering) para agrupar los datos y simplificar problemas.
+    </p>
+    <h2>Desarrollo del modelo</h2>
+    <p>
+        Se puede utilizar Machine Learning (ML) o Deep Learning (DL) para desarrollar el modelo. <br>
+        Se toma en cuenta el <i>No free lunch theorem: </i> no existe un mejor modelo para todos los problemas. Es necesario buscar el mejor modelo para el problema. <br>
+        <b>Sobreajuste: </b>Es cuando el modelo no es capaz de generalizar. Se ajusta bien a los datos de entrenamiento, pero no da buenos datos de salida, como que se queda bloqueado en los datos de entrenamiento. <br>
+        Para evitar esto, se dividen los datos en tres partes:
+        <ol>
+            <li><i>Datos de entrenamiento: </i>Datos para ajustar el modelo</li>
+            <li><i>Datos de validación: </i>Controla el ajuste del conjunto de entrenamiento</li>
+            <li><i>Datos de test: </i>Define el comportamiento del modelo ante datos no observados</li>
+        </ol>
+        Con estos datos se determina la eficacia del modelo para los datos de entrenamiento y de validación. El error en ambos va bajando, pero cuando aumenta el error de validación implica que se sobreajusta. <br>
+        Se debe parar cuando esto pase, ya que el modelo tiene más capacidad de generalización. Oviamente estos datos deben estimarse ya que no se ven tan fácilmente. <br>
+        También se puede utilizar un k-fold. Se usa cuando hay pocos patrones. Se dividen los datos en conjuntos, y luego se agrupan en conjuntos de subconjuntos (folds). <br>
+        Se usa uno de esos subconjuntos para validar y el resto para entrenar. Se divide en k valores para el conjunto de validación. <br>
+        Las divisiones del fold se hacen automáticamente por el lenguaje. <br>
+    </p>
+    <h2>Análisis de errores</h2>
+    <p>
+        Se debe tomar en cuenta: la medida de error que dirige el desarrollo de modelos, y la medida del error que se quiere analizar. En todo caso, se evalúa el sesgo y varianza. <br>
+        <ul>
+            <li><b>Sesgo: </b>Se define como <i>la cantidad que mide la tendencia a aprender de forma sistémica cosas equivocadas. </i> <br>
+            El sesgo deriva al modelo a un tipo determinado de resultado</li>
+            <li><b>Varianza: </b>Se define como <i>la tendencia a aprender cosas irrelevante para lo que se quiere aprender. </i> <br>
+            El sesgo dda respuestas demasiado específicas para el problema en concreto</li>
+        </ul>
+        El objetivo es reducir el sesgo y varianza lo más posible.
+    </p>
+    <h2>Producción</h2>
+    <p>
+        Se debe tener en cuanta la evolución del modelo y lo que se quiere que haga. <br>
+        Para desarrollar un modelo de estos se utiliza la metodología CRISP-DM. Tiene tres partes y tres ppreguntas clave:
+        <ul>
+            <li>¿Qué se quiere resolver?</li>
+            <li>¿Qué mdeida se va a usar para comprobar el funcionamiento del modelo?</li>
+            <li>¿Qué datos se usarán para comprobar la solución del problema?</li>
+        </ul>
+        Se busca modularizar los proyectos y no hacerlos demasiado grandes. También se busca la comunicación entre el analista de datos y el cliente.
+    </p>
     <a href="1.3.html">
         <button>Siguiente capítulo</button>
     </a>
